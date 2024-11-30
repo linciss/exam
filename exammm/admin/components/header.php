@@ -21,18 +21,36 @@
         }
       }
   </script>
+  <script src="components/header.js" defer></script>
+  <style>
+      .show-menu {
+          display: flex !important;
+      }
+    </style>
     <title>Admin</title>
 </head>
 <body>
 <header class="flex justify-between px-8 py-4 bg-[#fffdd0]">
-        <a href="./" class="" id="logo-text">
+        <a href="./" class="flex flex-row gap-2 items-center" id="logo-text">
             <i class="fa fa-server"></i> Bibliotech
         </a>
-        <div class="flex flex-row gap-4 items-center">
+        <div class=" flex-row gap-4 items-center sm:flex hidden">
             <a href="./" class="px-2 py-1 rounded-md border border-red-400">Sākums</a>
             <a href="./" class="px-2 py-1 rounded-md border border-red-400">Grāmatas</a>
-            <a href="./" class="px-2 py-1 rounded-md border border-red-400">PRO īpašnieki</a>
+            <a href="./" class="px-2 py-1 rounded-md border border-red-400">īpašnieki</a>
             <a href="./" class="px-2 py-1 rounded-md border border-red-400">Lietotāji</a>
-            <a href="logout.php" class="btn"><i class="fa-solid fa-power-off"></i></a>
+            <a href="logout.php" class="px-2 py-1 rounded-md border border-red-400 flex flex-row gap-2 items-center"><?php echo $_SESSION['lincisExam']?><i class="fa-solid fa-power-off"></i></a>
         </div>
+        <div class="sm:hidden hamburger cursor-pointer">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        
+           
     </header>
+    <div class="flex-col gap-4 items-center fixed bg-[#fffdd0] h-screen w-full hidden" id="menu">
+        <a href="./" class="px-2 py-1 rounded-md border border-red-400">Sākums</a>
+        <a href="./" class="px-2 py-1 rounded-md border border-red-400">Grāmatas</a>
+        <a href="./" class="px-2 py-1 rounded-md border border-red-400">īpašnieki</a>
+        <a href="./" class="px-2 py-1 rounded-md border border-red-400">Lietotāji</a>
+        <a href="logout.php" class="px-2 py-1 rounded-md border border-red-400 flex flex-row gap-2 items-center"><?php echo $_SESSION['lincisExam']?><i class="fa-solid fa-power-off"></i></a>
+    </div>
