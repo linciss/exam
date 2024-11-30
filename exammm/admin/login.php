@@ -24,12 +24,12 @@
         <div class="modal-box">
             <h2>Ielogoties sistēmā</h2>
 
-            <form action="database/login-function.php" method="POST">
+            <form action="database/login.php" method="POST">
                 <label>Lietotājvārds:</label>
                 <input type="text" name="username" required>
                 <label>Parole:</label>
                 <input type="password" name="password" required>
-                <button type="submit" name="logIn" class="btn active">Nosūtīt</button>
+                <button type="submit" name="login" class="btn active">Nosūtīt</button>
             </form>
         </div>
     </div>
