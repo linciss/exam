@@ -1,6 +1,6 @@
 <?php
     if(isset($_POST['login'])){
-        require 'con_db.php';
+        require 'config.php';
         session_start();
 
         $username = htmlspecialchars($_POST['username']);
