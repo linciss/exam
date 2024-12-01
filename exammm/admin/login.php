@@ -60,11 +60,11 @@
             <form action="database/login.php" method="POST" class="grid grid-cols-1 gap-4">
                 <div class="flex flex-col">
                     <label class="text-xl">Lietotājvārds:</label>
-                    <input type="text" name="username" required class="border border-gray-500 rounded-md p-1 text-black">
+                    <input type="text" name="username" required class="border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
                 </div>
                 <div class="flex flex-col">
                     <label class="text-xl">Parole:</label>
-                    <input type="password" name="password" required class="border border-gray-500 rounded-md p-1 text-black">
+                    <input type="password" name="password" required class="border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
                 </div>
                 <button type="submit" name="login" class="border border-gray-500 p-2 rounded-md bg-body hover:bg-orange-200 dark:bg-darkBody dark:hover:bg-zinc-900">Nosūtīt</button>
             </form>
