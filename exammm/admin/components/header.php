@@ -23,6 +23,8 @@
             colors: {
                 nav: '#F0EAE5',
                 body: '#F7F7F7',
+                darkNav: '#1E1F1E',
+                darkBody: '#121212',
             },
             },
     },
@@ -37,24 +39,24 @@
     </style>
     <title><?php echo $pageTitle ?></title>
 </head>
-<body class="dark:bg-gray-900 bg-body">
-<header class="flex justify-between px-8 py-4 bg-nav">
-        <a href="./" class="flex flex-row gap-2 items-center text-2xl font-bold" id="logo-text">
+<body class="dark:bg-darkBody bg-body text-black dark:text-white">
+<header class="flex justify-between px-8 py-4 bg-nav dark:bg-darkNav">
+        <a href="./" class="flex flex-row gap-2 items-center text-2xl font-bold " id="logo-text">
             <i class="fa fa-server"></i> Bibliotech
         </a>
-        <div class=" flex-row gap-4 items-center sm:flex hidden">
+        <div class=" flex-row gap-2 items-center sm:flex hidden">
             <a href="./" class="<?php echo ($pageTitle == 'Sākums') ? 'bg-black ' : '' ?> px-2 py-1 rounded-md border border-gray-500">Sākums</a>
             <a href="./books.php" class="<?php echo ($pageTitle == 'Grāmatas') ? 'bg-black ' : '' ?> px-2 py-1 rounded-md border border-gray-500">Grāmatas</a>
             <a href="./readers.php" class="<?php echo ($pageTitle == 'Lasītāji') ? 'bg-black ' : '' ?> px-2 py-1 rounded-md border border-gray-500">Lasītāji</a>
             <a href="./users.php" class="<?php echo ($pageTitle == 'Lietotāji') ? 'bg-black ' : '' ?> px-2 py-1 rounded-md border border-gray-500">Lietotāji</a>
             <a href="logout.php" class="px-2 py-1 rounded-md border border-gray-500 flex flex-row gap-2 items-center"><?php echo $_SESSION['lincisExam']?><i class="fa-solid fa-power-off"></i></a>
-            <a class="cursor-pointer" id="darkModeToggle">dark</a>
+            <a class="cursor-pointer px-2 py-1 border border-gray-500 rounded-md" id="darkModeToggle"><i class="fa-solid fa-moon" id="themeIcon"></i></a>
         </div>
         <div class="sm:hidden flex flex-row gap-4 items-center"> 
         <div class=" hamburger cursor-pointer ">
             <i class="fa-solid fa-bars"></i>
         </div>
-        <a class="cursor-pointer" id="darkModeToggle">dark</a>
+        <a class="cursor-pointer px-2 py-1 border border-gray-500 rounded-md" id="darkModeToggleMobile"><i class="fa-solid fa-moon" id="themeIconMobile"></i></a>
     </div>
        
     </header>
