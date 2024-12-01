@@ -47,7 +47,7 @@
     <script src="misc/login.js" defer></script>
 </head>
 
-<body class="flex items-center justify-center min-h-screen bg-body dark:bg-darkBody text-black dark:text-white ">
+<body class="flex items-center justify-center min-h-screen bg-body dark:bg-darkBody text-black dark:text-white flex-col">
     <div class="max-w-2xl w-full border border-gray-500 p-8 bg-modal dark:bg-darkModal shadow-lg rounded-md">
         <div class="flex flex-col gap-4">
             <h2 class="text-center text-3xl font-bold">Ielogoties sistēmā</h2>
@@ -70,5 +70,8 @@
             </form>
         </div>
     </div>
+    <?php
+    require 'components/footer.php';
+?>
 </body>
 </html>

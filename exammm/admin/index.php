@@ -10,6 +10,8 @@ session_start();
     require 'components/header.php';
 ?>
 
-
+<?php
+    require 'components/footer.php';
+?>
 </body>
 </html>
