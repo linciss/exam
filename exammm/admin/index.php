@@ -5,6 +5,8 @@ session_start();
         exit;
     }
 
+    $pageTitle = 'Sākums';
+
     require 'components/header.php';
 ?>
 
