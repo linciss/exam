@@ -95,7 +95,7 @@ $(document).ready(() => {
               <input type="file" name="cover" id="cover" class="border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
           </div>
           <input type="hidden" name="id" id="id">
-          <button type="submit" class="w-full mt-4 border border-gray-500 p-2 rounded-md hover:bg-nav bg-orange-200 dark:bg-darkBody dark:hover:bg-zinc-900">Pievienot</button>
+          <button type="submit" class="w-full mt-4 border border-gray-500 p-2 rounded-md hover:bg-nav bg-orange-200  dark:bg-zinc-700 dark:hover:bg-darkNav">Pievienot</button>
     `;
   };
 

@@ -67,7 +67,7 @@
                     <label class="text-xl">Parole:</label>
                     <input type="password" name="password" required class="border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
                 </div>
-                <button type="submit" name="login" class="border border-gray-500 p-2 rounded-md bg-body hover:bg-modal bg-orange-200 dark:bg-darkBody dark:hover:bg-zinc-900">Nosūtīt</button>
+                <button type="submit" name="login" class="border border-gray-500 p-2 rounded-md bg-body hover:bg-modal bg-orange-200 dark:bg-zinc-700 dark:hover:bg-darkModal">Nosūtīt</button>
             </form>
         </div>
     </div>
