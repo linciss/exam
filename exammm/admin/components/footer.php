@@ -7,7 +7,7 @@
                     <p>&copy; 2024 - Linards</p>
                 </div>
                 <div class="col-md-6 text-right">
-                    <p>Izstrādāja <a href="https://github.com/linciss" target="_blank">Linards Sils</a></p>
+                    <p>Izstrādājs <a href="https://github.com/linciss" target="_blank">Linards Sils</a></p>
                 </div>
             </div>
         </div>
