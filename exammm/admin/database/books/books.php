@@ -15,7 +15,7 @@ $json = array();
 while($row = $result->fetch_assoc()){
     $json[] = array(
         'id' => htmlspecialchars($row['book_id']),
-        'name' => htmlspecialchars($row['name']),
+        'title' => htmlspecialchars($row['title']),
         'author' => htmlspecialchars($row['author']),
         'releaseDate' => htmlspecialchars($row['release_date']),
         'inStorage' => htmlspecialchars($row['in_storage']) === 'yes' ? "Jā" : "Nē",

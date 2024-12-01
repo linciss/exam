@@ -31,6 +31,7 @@ session_start();
 
 <?php
     $modalType = 'bookModal';
+    $formType = 'bookForm';
     require 'components/modal.php';
     require 'components/footer.php';
 ?>
