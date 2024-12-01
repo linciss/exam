@@ -5,4 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
   hamburger.addEventListener('click', function () {
     menu.classList.toggle('show-menu');
   });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 640) {
+      menu.classList.add('hidden');
+      menu.classList.remove('show-menu');
+    }
+  });
 });
