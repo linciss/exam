@@ -6,6 +6,7 @@ session_start();
     }
 
     $pageTitle = 'Sākums';
+    $scriptName = 'index.js';
 
     require 'components/header.php';
 ?>

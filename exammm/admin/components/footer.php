@@ -1,5 +1,6 @@
-<footer>
-    <div class="mx-auto border-t-2 border-gray-500 w-full bottom-0 mt-5">
+</div>
+<footer class="w-full border-t-2 border-gray-500  bottom-0 mt-5">
+    <div class="mx-auto ">
         <div class="container mx-auto p-2">
             <div class="flex flex-col justify-center items-center">
                 <div class="col-md-6">

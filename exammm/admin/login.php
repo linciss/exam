@@ -47,7 +47,8 @@
     <script src="misc/login.js" defer></script>
 </head>
 
-<body class="flex items-center justify-center min-h-screen bg-body dark:bg-darkBody text-black dark:text-white flex-col">
+<body class="flex min-h-screen bg-body dark:bg-darkBody text-black dark:text-white flex-col">
+    <div class="flex-grow flex items-center justify-center">
     <div class="max-w-2xl w-full border border-gray-500 p-8 bg-modal dark:bg-darkModal shadow-lg rounded-md">
         <div class="flex flex-col gap-4">
             <h2 class="text-center text-3xl font-bold">Ielogoties sistēmā</h2>
@@ -66,7 +67,7 @@
                     <label class="text-xl">Parole:</label>
                     <input type="password" name="password" required class="border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
                 </div>
-                <button type="submit" name="login" class="border border-gray-500 p-2 rounded-md bg-body hover:bg-orange-200 dark:bg-darkBody dark:hover:bg-zinc-900">Nosūtīt</button>
+                <button type="submit" name="login" class="border border-gray-500 p-2 rounded-md bg-body hover:bg-modal bg-orange-200 dark:bg-darkBody dark:hover:bg-zinc-900">Nosūtīt</button>
             </form>
         </div>
     </div>
