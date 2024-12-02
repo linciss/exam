@@ -39,8 +39,8 @@ $(document).ready(() => {
             <td class="sm:px-6 px-2 py-4 md:table-cell hidden">${book.releaseDate}</td>
             <td class="sm:px-6 px-2 py-4 sm:table-cell hidden">${book.inStorage}</td>
             <td class="sm:px-6 px-2 py-4 ">
-                <a id="bookEdit" class="px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-pencil"></i></a>
-                <a id="bookDelete" class="px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-trash"></i></a>
+                <a id="bookEdit" class="hover:bg-nav dark:hover:bg-darkNav px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-pencil"></i></a>
+                <a id="bookDelete" class="hover:bg-nav dark:hover:bg-darkNav px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-trash"></i></a>
             </td>
         </tr>`;
         });
@@ -188,6 +188,37 @@ $(document).ready(() => {
       $('#inStorage').val(book.inStorage);
       $('#id').val(book.id);
       edit = true;
+    });
+  });
+
+  $('#search').submit((e) => {
+    e.preventDefault();
+    const search = $('#searchInput').val();
+
+    if (search === '') {
+      fetchBooks();
+      return;
+    }
+
+    $.post('database/books/search-book.php', { search }, (res) => {
+      const books = JSON.parse(res);
+      let template = '';
+
+      books.forEach((book) => {
+        template += `<tr bookId="${book.id}" class="bg-nav dark:bg-darkNav border-b border-gray-500 ">
+            <td class="sm:px-6 px-2 py-4 ">${book.id}</td>
+            <td class="sm:px-6 px-2 py-4 ">${book.title}</td>
+            <td class="sm:px-6 px-2 py-4 ">${book.author}</td>
+            <td class="sm:px-6 px-2 py-4 ">${book.genre}</td>
+            <td class="sm:px-6 px-2 py-4 md:table-cell hidden">${book.releaseDate}</td>
+            <td class="sm:px-6 px-2 py-4 sm:table-cell hidden">${book.inStorage}</td>
+            <td class="sm:px-6 px-2 py-4 ">
+                <a id="bookEdit" class="hover:bg-nav dark:hover:bg-darkNav px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-pencil"></i></a>
+                <a id="bookDelete" class="hover:bg-nav dark:hover:bg-darkNav px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>`;
+      });
+      $('#booksBody').html(template);
     });
   });
 });

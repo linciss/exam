@@ -40,8 +40,8 @@ $(document).ready(() => {
             <td class="sm:px-6 px-2 py-4 md:table-cell hidden">${user.email}</td>
             <td class="sm:px-6 px-2 py-4 ">${user.role}</td>
             <td class="sm:px-6 px-2 py-4 ">
-                <a id="userEdit" class="px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-pencil"></i></a>
-                <a id="userDelete" class="px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-trash"></i></a>
+                <a id="userEdit" class="hover:bg-nav dark:hover:bg-darkNav px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-pencil"></i></a>
+                <a id="userDelete" class="hover:bg-nav dark:hover:bg-darkNav px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-trash"></i></a>
             </td>
         </tr>`;
         });
@@ -78,7 +78,7 @@ $(document).ready(() => {
               <input type="text" name="lastName" id="lastName" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
               <label for="email" class="text-xl">E-pasts:</label>
               <input type="email" name="email" id="email" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-              <label  label for="role" class="text-xl">Tiesības:</label>
+              <label for="role" class="text-xl">Tiesības:</label>
               <select  name="role" id="role" class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
                  <option  value="admin">Administrators</option>
                  <option value="moderator">Moderators</option>
@@ -180,6 +180,36 @@ $(document).ready(() => {
       $('#role').val(user.role);
       $('#id').val(user.id);
       edit = true;
+    });
+  });
+
+  $('#search').submit((e) => {
+    e.preventDefault();
+    const search = $('#searchInput').val();
+
+    if (search === '') {
+      fetchUsers();
+      return;
+    }
+
+    $.post('database/users/search-user.php', { search }, (res) => {
+      const users = JSON.parse(res);
+      let template = '';
+      users.forEach((user) => {
+        template += `<tr userId="${user.id}" class="bg-nav dark:bg-darkNav border-b border-gray-500 ">
+            <td class="sm:px-6 px-2 py-4 ">${user.id}</td>
+            <td class="sm:px-6 px-2 py-4 ">${user.username}</td>
+            <td class="sm:px-6 px-2 py-4 ">${user.name}</td>
+            <td class="sm:px-6 px-2 py-4 ">${user.lastName}</td>
+            <td class="sm:px-6 px-2 py-4 md:table-cell hidden">${user.email}</td>
+            <td class="sm:px-6 px-2 py-4 ">${user.role}</td>
+            <td class="sm:px-6 px-2 py-4 ">
+                <a id="userEdit" class="hover:bg-nav dark:hover:bg-darkNav px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-pencil"></i></a>
+                <a id="userDelete" class="hover:bg-nav dark:hover:bg-darkNav px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>`;
+      });
+      $('#usersBody').html(template);
     });
   });
 });
