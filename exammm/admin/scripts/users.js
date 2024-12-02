@@ -84,7 +84,9 @@ $(document).ready(() => {
                  <option value="moderator">Moderators</option>
               </select>
               <label for="password" class="text-xl">Parole:</label>
-              <input type="password" placeholder="*****" name="password" id="password" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
+              <input type="password" placeholder="*****" name="password" id="password" ${
+                edit ? '' : 'required'
+              } class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
           </div>
           <input type="hidden" name="id" id="id">
           <button type="submit" class="w-full mt-4 border border-gray-500 p-2 rounded-md hover:bg-nav bg-orange-200  dark:bg-zinc-700 dark:hover:bg-darkNav">Pievienot</button>
@@ -157,29 +159,27 @@ $(document).ready(() => {
     }
   });
 
-  // $(document).on('click', '#userEdit', (e) => {
-  //   edit = true;
+  $(document).on('click', '#userEdit', (e) => {
+    edit = true;
 
-  //   $('#userModal').toggleClass('show-menu');
-  //   $('#userForm').trigger('reset');
-  //   $('#modalTitle').text('Rediģēt grāmatu');
-  //   refreshForm();
+    $('#userModal').toggleClass('show-menu');
+    $('#userForm').trigger('reset');
+    $('#modalTitle').text('Rediģēt grāmatu');
+    refreshForm();
 
-  //   const element = $(e.currentTarget).closest('tr');
-  //   const id = element.attr('userId');
+    const element = $(e.currentTarget).closest('tr');
+    const id = element.attr('userId');
 
-  //   $.post('database/users/user.php', { id }, (res) => {
-  //     const user = JSON.parse(res);
-  //     console.log(user);
-  //     $('#title').val(user.title);
-  //     $('#author').val(user.author);
-  //     $('#genre').val(user.genre);
-  //     $('#release').val(user.releaseDate);
-  //     $('#description').val(user.description);
-  //     $('#inStorage').val(user.inStorage);
-  //     $('#id').val(user.id);
-  //     edit = true;
-  //   });
-  // });
-  console.log('helklo world');
+    $.post('database/users/user.php', { id }, (res) => {
+      const user = JSON.parse(res);
+      console.log(user);
+      $('#username').val(user.username);
+      $('#name').val(user.name);
+      $('#lastName').val(user.lastName);
+      $('#email').val(user.email);
+      $('#role').val(user.role);
+      $('#id').val(user.id);
+      edit = true;
+    });
+  });
 });
