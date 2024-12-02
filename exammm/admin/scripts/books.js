@@ -149,6 +149,7 @@ $(document).ready(() => {
       error: (err) => {
         $('#errorAdd').removeClass('hidden');
         $('#errorAdd').toggleClass('!block');
+        $('#errorAdd').text(err.responseText);
         console.log(err);
       },
     });
