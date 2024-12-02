@@ -6,7 +6,7 @@
         $username = htmlspecialchars($_POST['username']);
         $password = htmlspecialchars($_POST['password']);
 
-        $query = $con->prepare("SELECT * FROM Ex_users WHERE username = ?");
+        $query = $con->prepare("SELECT * FROM ex_users WHERE username = ?");
 
         $query->bind_param("s", $username);
         $query->execute();
@@ -16,7 +16,7 @@
         if($user && password_verify($password, $user['password'])){
             echo $_SESSION['lincisExam'] = $user['username'];
         }else{
-            echo $_SESSION['pazinojumslinards'] = 'Nepareizs lietotājvārds vai parole!';
+            echo $_SESSION['loginError'] = 'Nepareizs lietotājvārds vai parole!';
         }
 
         header("Location: ../");
