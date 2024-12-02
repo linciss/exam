@@ -1,6 +1,6 @@
 <div class="flex flex-row gap-2 justify-between items-center container mx-auto mt-5 md:px-0 px-8 text-black dark:text-white">
-    <form class="flex flex-row gap-1">
-        <input type="text" name="search" placeholder="Meklēt <?php echo $type ?>" class="w-full xs:w-full border border-gray-500  px-2 py-1 rounded-md bg-white dark:bg-zinc-900">
+    <form id="search" class="flex flex-row gap-1">
+        <input type="text" name="searchInput" id="searchInput" placeholder="Meklēt <?php echo $type ?>" class="w-full xs:w-full border border-gray-500  px-2 py-1 rounded-md bg-white dark:bg-zinc-900">
         <button type="submit" class="hover:bg-nav dark:hover:bg-darkNav px-2 py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md">Meklēt</button>
     </form>
 
