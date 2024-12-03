@@ -12,7 +12,7 @@ $totalRow = $totalResult->fetch_assoc();
 $totalItems = $totalRow['total'];
 
 
-$query = "SELECT * FROM ex_books ORDER BY book_id DESC LIMIT $itemsPerPage OFFSET $offset";
+$query = "SELECT * FROM ex_books where in_storage = 'yes' ORDER BY book_id DESC LIMIT $itemsPerPage OFFSET $offset";
 $result = mysqli_query($con, $query);
 
 
