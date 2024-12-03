@@ -15,6 +15,8 @@
         $user = $result->fetch_assoc();
         if($user && password_verify($password, $user['password'])){
             echo $_SESSION['lincisExam'] = $user['username'];
+            echo $_SESSION['role'] = $user['role'];
+
         }else{
             echo $_SESSION['loginError'] = 'Nepareizs lietotājvārds vai parole!';
         }
