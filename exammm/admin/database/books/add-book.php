@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 
-    if(empty($title) || empty($author) || empty($genre) || empty($date) || empty($description)){
+    if(empty($title) || empty($author) || empty($genre) || empty($date) || empty($description) || empty($cover)){
             echo $_SESSION['error'] = 'Lūdzu aizpildiet visus laukus!';
             http_response_code(400);
             exit;
