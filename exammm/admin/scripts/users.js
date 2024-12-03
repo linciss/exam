@@ -57,9 +57,9 @@ $(document).ready(() => {
 
   const updateText = () => {
     if (window.innerWidth < 515) {
-      $('#newuserButton').text('+');
+      $('#newUserButton').text('+');
     } else {
-      $('#newuserButton').text('+ Pievienot lietotāju');
+      $('#newUserButton').text('+ Pievienot lietotāju');
     }
   };
 
