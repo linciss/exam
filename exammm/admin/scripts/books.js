@@ -92,7 +92,7 @@ $(document).ready(() => {
           </div>
           <div class="flex flex-col gap-2">
               <label for="cover" class="text-xl text-left">Vāka bilde:</label>
-              <input type="file" name="cover" id="cover" class="border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
+              <input type="file" name="cover" id="cover" accept="image/*" class="border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
           </div>
           <input type="hidden" name="id" id="id">
           <button type="submit" class="w-full mt-4 border border-gray-500 p-2 rounded-md hover:bg-nav bg-orange-200  dark:bg-zinc-700 dark:hover:bg-darkNav">Pievienot</button>
@@ -121,16 +121,18 @@ $(document).ready(() => {
 
   $('#bookForm').submit((e) => {
     e.preventDefault();
-    const formData = {
-      title: $('#title').val(),
-      author: $('#author').val(),
-      genre: $('#genre').val(),
-      release: $('#release').val(),
-      cover: $('#cover').prop('files')[0] || null,
-      description: $('#description').val(),
-      inStorage: $('#inStorage').val() || null,
-      id: $('#id').val() || null,
-    };
+
+    const formData = new FormData();
+    formData.append('title', $('#title').val());
+    formData.append('author', $('#author').val());
+    formData.append('genre', $('#genre').val());
+    formData.append('release', $('#release').val());
+    formData.append('cover', $('#cover').prop('files')[0]);
+    formData.append('description', $('#description').val());
+    if (edit) formData.append('inStorage', $('#inStorage').val());
+    if (edit) formData.append('id', $('#id').val());
+
+    console.log(formData);
 
     const url = edit
       ? 'database/books/edit-book.php'
@@ -140,6 +142,8 @@ $(document).ready(() => {
       url,
       type: 'POST',
       data: formData,
+      processData: false,
+      contentType: false,
       success: (res) => {
         fetchBooks();
         $('#bookModal').toggleClass('show-menu');

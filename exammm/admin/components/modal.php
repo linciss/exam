@@ -6,7 +6,7 @@
         </div>
         <h1 id="modalTitle" class="text-4xl text-center">Pietiekums</h1>
         <div id="errorAdd" class="bg-red-500 text-white p-2 rounded-md text-center hidden"></div>
-        <form class="py-4 grid-cols-1 gap-8" id="<?php echo $formType ?>">
+        <form class="py-4 grid-cols-1 gap-8" id="<?php echo $formType ?>" action="database/books/add-book.php" method="post" enctype="multipart/form-data">
         </form>
     </div>
 </div>
