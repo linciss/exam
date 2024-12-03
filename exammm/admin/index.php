@@ -57,7 +57,7 @@ session_start();
         </div>
         <div class="text-center ">
             <h2 class="text-2xl font-bold mt-5 mb-2 bg-nav dark:bg-darkNav rounded-md">Pēdējie notikumi</h2>
-            <div>
+            <div id="chartContainer">
                 <canvas id="chart"></canvas>
             </div>
         </div>

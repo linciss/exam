@@ -25,35 +25,47 @@ $(document).ready(() => {
           }
         });
 
-        new Chart('chart', {
-          type: 'line',
+        let isDarkMode = document.documentElement.classList.contains('dark');
 
-          data: {
-            labels: Object.keys(dateCount).reverse(),
-            datasets: [
-              {
-                label: 'Lasītāji',
-                backgroundColor: '#fed7aa',
-                borderColor: '#F0EAE5',
-                fill: true,
-                data: Object.values(dateCount).reverse(),
-                tension: 0.4,
-              },
-            ],
-          },
-          options: {
-            plugins: {
-              tooltip: {
-                enabled: true,
-              },
-              legend: {
-                display: false,
-              },
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-          },
+        $('#darkModeToggle').click(() => {
+          isDarkMode = !isDarkMode;
+          $('#chart').remove();
+          $('#chartContainer').append('<canvas id="chart"></canvas>');
+          generateChart(dateCount);
         });
+
+        const generateChart = (dateCount) => {
+          new Chart('chart', {
+            type: 'line',
+
+            data: {
+              labels: Object.keys(dateCount).reverse(),
+              datasets: [
+                {
+                  label: 'Lasītāji',
+                  backgroundColor: isDarkMode ? '#3F3F46' : '#fed7aa',
+                  borderColor: isDarkMode ? '#1E1F1E' : '#F0EAE5',
+                  fill: true,
+                  data: Object.values(dateCount).reverse(),
+                  tension: 0.4,
+                },
+              ],
+            },
+            options: {
+              plugins: {
+                tooltip: {
+                  enabled: true,
+                },
+                legend: {
+                  display: false,
+                },
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+            },
+          });
+        };
+        generateChart(dateCount);
       },
       error: (err) => {
         console.log(err);
