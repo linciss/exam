@@ -70,7 +70,7 @@ $(document).ready(() => {
   const getTemplate = (edit) => {
     return `
     <div class="grid gap-4 grid-cols-2">
-              <label for="username" class="text-xl">Vārds:</label>
+              <label for="username" class="text-xl">Lietotājvārds:</label>
               <input type="text" name="username" id="username" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
               <label for="name" class="text-xl">Vārds:</label>
               <input type="text" name="name" id="name" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
