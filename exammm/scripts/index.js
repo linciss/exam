@@ -14,8 +14,6 @@ $(document).ready(() => {
 
         let template = '';
 
-        console.log(books);
-
         books.forEach((book) => {
           template += `
             <div class="group relative bookItem cursor-pointer" data-id=${
@@ -90,10 +88,7 @@ $(document).ready(() => {
     $('#readerModal').toggleClass('show-menu');
     $('#readerForm').trigger('reset');
     $('#modalTitle').text('Pieteikties pie grāmatas');
-    $('#successAdd').removeClass('!block');
-    $('#successAdd').addClass('hidden');
-    $('#successMessage').removeClass('!block');
-    $('#successMessage').addClass('hidden');
+    removeSuccess();
   });
 
   $('#modalClose').click(() => {
@@ -101,16 +96,11 @@ $(document).ready(() => {
     $('#readerForm').trigger('reset');
     $('#errorAdd').addClass('hidden');
     $('#errorAdd').removeClass('!block');
-    $('#successAdd').removeClass('!block');
-    $('#successAdd').addClass('hidden');
-    $('#successMessage').removeClass('!block');
-    $('#successMessage').addClass('hidden');
+    removeSuccess();
   });
 
   $('#readerForm').submit((e) => {
     e.preventDefault();
-
-    console.log($('#id').val());
 
     const formData = {
       name: $('#name').val(),
@@ -128,17 +118,13 @@ $(document).ready(() => {
       success: (res) => {
         $('#errorAdd').addClass('hidden');
         $('#errorAdd').removeClass('!block');
-        $('#successAdd').removeClass('hidden');
-        $('#successAdd').toggleClass('!block');
-        $('#successMessage').removeClass('hidden');
-        $('#successMessage').toggleClass('!block');
+        showSuccess();
         setTimeout(() => {
-          $('#readerModal').toggleClass('show-menu');
+          if ($('#readerModal').hasClass('show-menu')) {
+            $('#readerModal').toggleClass('show-menu');
+          }
+          removeSuccess();
           $('#readerForm').trigger('reset');
-          $('#successAdd').removeClass('!block');
-          $('#successAdd').addClass('hidden');
-          $('#successMessage').removeClass('!block');
-          $('#successMessage').addClass('hidden');
         }, 2000);
       },
       error: (err) => {
@@ -148,4 +134,18 @@ $(document).ready(() => {
       },
     });
   });
+
+  const removeSuccess = () => {
+    $('#successAdd').removeClass('!block');
+    $('#successAdd').addClass('hidden');
+    $('#successMessage').removeClass('!block');
+    $('#successMessage').addClass('hidden');
+  };
+
+  const showSuccess = () => {
+    $('#successAdd').removeClass('hidden');
+    $('#successAdd').toggleClass('!block');
+    $('#successMessage').removeClass('hidden');
+    $('#successMessage').toggleClass('!block');
+  };
 });
