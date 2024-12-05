@@ -9,7 +9,9 @@ if(isset($_POST['id'])){
     $genre = htmlspecialchars($_POST['genre']);
     $date = htmlspecialchars($_POST['release']);
     $description = htmlspecialchars($_POST['description']);
-    $cover = $_POST['cover'];
+    $cover = isset($_FILES['cover']) ? $_FILES['cover'] : null;
+    $coverData = $cover ? file_get_contents($cover['tmp_name']) : null; 
+
     $inStorage = htmlspecialchars($_POST['inStorage']);
 
     $checkQuery = $con->prepare("SELECT * FROM ex_books WHERE book_id = ?");
@@ -41,10 +43,11 @@ if(isset($_POST['id'])){
        
     }
 
-
+    if($cover['size'] === 0 || $cover === null || $cover === '' || $coverData === null || empty($coverData)){
+        $coverData = $result['cover_image'];
+    }
     $query = $con->prepare("UPDATE ex_books SET title = ?, author = ?, genre = ?, release_date = ?, cover_image = ?, description = ?, in_storage = ? WHERE book_id = ?");
-
-    $query->bind_param("ssssbssi", $title, $author, $genre, $date, $cover, $description, $inStorage, $id);
+    $query->bind_param("sssssssi", $title, $author, $genre, $date, $coverData, $description, $inStorage, $id);
 
 
     if($query->execute()){
