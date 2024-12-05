@@ -13,7 +13,7 @@ if(isset($_POST['id'])){
         exit();
     }
 
-    $query = $con->prepare("UPDATE ex_readers set deleted = 'yes' WHERE reader_id = ?");
+    $query = $con->prepare("DELETE FROM ex_readers WHERE reader_id = ?");
     $query->bind_param("i", $id);
 
     if($query->execute()){
