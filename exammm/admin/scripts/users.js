@@ -172,7 +172,6 @@ $(document).ready(() => {
 
     $.post('database/users/user.php', { id }, (res) => {
       const user = JSON.parse(res);
-      console.log(user);
       $('#username').val(user.username);
       $('#name').val(user.name);
       $('#lastName').val(user.lastName);

@@ -132,8 +132,6 @@ $(document).ready(() => {
     if (edit) formData.append('inStorage', $('#inStorage').val());
     if (edit) formData.append('id', $('#id').val());
 
-    console.log(formData);
-
     const url = edit
       ? 'database/books/edit-book.php'
       : 'database/books/add-book.php';
@@ -183,7 +181,6 @@ $(document).ready(() => {
 
     $.post('database/books/book.php', { id }, (res) => {
       const book = JSON.parse(res);
-      console.log(book);
       $('#title').val(book.title);
       $('#author').val(book.author);
       $('#genre').val(book.genre);

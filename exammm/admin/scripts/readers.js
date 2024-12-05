@@ -35,8 +35,6 @@ $(document).ready(() => {
         const readers = JSON.parse(res);
         let template = '';
 
-        console.log(readers);
-
         readers.forEach((reader) => {
           template += `<tr readerId="${reader.id}" class="${
             reader.deadlineExceeded ? 'bg-red-300' : 'bg-nav dark:bg-darkNav'
@@ -170,7 +168,6 @@ $(document).ready(() => {
 
     $.post('database/readers/reader.php', { id }, (res) => {
       const reader = JSON.parse(res);
-      console.log(reader);
       $('#name').val(reader.name);
       $('#lastName').val(reader.lastName);
       $('#email').val(reader.email);
