@@ -31,6 +31,11 @@ if(isset($_POST['search'])){
     $json = array();
 
    while($row = $result->fetch_assoc()){
+    $date_taken = new DateTime($row['date_taken']);
+    $current_date = new DateTime();
+    $interval = $date_taken->diff($current_date);
+    $deadlineExceeded = $interval->days >= 30;
+    
     $json[] = array(
         'id' => htmlspecialchars($row['reader_id']),
         'name' => htmlspecialchars($row['name']),
