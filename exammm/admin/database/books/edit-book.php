@@ -44,10 +44,13 @@ if(isset($_POST['id'])){
     }
 
     if($cover['size'] === 0 || $cover === null || $cover === '' || $coverData === null || empty($coverData)){
-        $coverData = $result['cover_image'];
+        $query = $con->prepare("UPDATE ex_books SET title = ?, author = ?, genre = ?, release_date = ?,  description = ?, in_storage = ? WHERE book_id = ?");
+        $query->bind_param("ssssssi", $title, $author, $genre, $date, $description, $inStorage, $id);
+    }else {
+        $query = $con->prepare("UPDATE ex_books SET title = ?, author = ?, genre = ?, release_date = ?, cover_image = ?, description = ?, in_storage = ? WHERE book_id = ?");
+        $query->bind_param("sssssssi", $title, $author, $genre, $date, $coverData, $description, $inStorage, $id);
     }
-    $query = $con->prepare("UPDATE ex_books SET title = ?, author = ?, genre = ?, release_date = ?, cover_image = ?, description = ?, in_storage = ? WHERE book_id = ?");
-    $query->bind_param("sssssssi", $title, $author, $genre, $date, $coverData, $description, $inStorage, $id);
+   
 
 
     if($query->execute()){
