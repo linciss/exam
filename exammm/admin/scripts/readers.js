@@ -150,6 +150,9 @@ $(document).ready(() => {
       const id = element.attr('readerId');
 
       $.post('database/readers/delete-reader.php', { id }, (res) => {
+        if (res === 'Šo lasītāju nevar dzēst!') {
+          alert(res);
+        }
         fetchReaders();
       });
     }
