@@ -43,7 +43,7 @@ $(document).ready(() => {
         $('#bookSection').html(template);
         let paginationTemplate = '';
         for (let i = 1; i <= totalPages; i++) {
-          paginationTemplate += `<button class="pagination-button" data-page="${i}">${i}</button>`;
+          paginationTemplate += `<button class="mt-2 pagination-button py-1 px-2 bg-orange-200 hover:bg-nav dark:bg-zinc-700 dark:hover:bg-darkNav border border-gray-500 rounded-md" data-page="${i}">${i}</button>`;
         }
         $('#paginationControls').html(paginationTemplate);
       },
