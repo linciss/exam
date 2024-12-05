@@ -69,17 +69,17 @@ $(document).ready(() => {
   const getTemplate = (edit) => {
     return `
         <div class="grid gap-4 grid-cols-2">
-          <label for="name" class="text-xl">Vārds:</label>
+          <label for="name" class="text-xl">Vārds<span class='text-red-500'>*</span>:</label>
           <input disabled type="text" name="name" id="name" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-          <label for="lastName" class="text-xl">Uzvārds:</label>
+          <label for="lastName" class="text-xl">Uzvārds<span class='text-red-500'>*</span>:</label>
           <input disabled type="text" name="lastName" id="lastName" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-          <label for="email" class="text-xl">E-pasts:</label>
+          <label for="email" class="text-xl">E-pasts<span class='text-red-500'>*</span>:</label>
           <input disabled type="email" name="email" id="email" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
           <label for="reg_date" class="text-xl">Reģistrācijas datums:</label>
           <input disabled type="text" name="reg_date" id="reg_date" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-          <label for="phone" class="text-xl">Telefons:</label>
+          <label for="phone" class="text-xl">Telefons<span class='text-red-500'>*</span>:</label>
           <input disabled type="text" name="phone" id="phone" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-          <label for="status" class="text-xl">Statuss:</label>
+          <label for="status" class="text-xl">Statuss<span class='text-red-500'>*</span>:</label>
             <select name="status" id="status" class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
               <option  value="waiting">Gaida</option>
               <option value="taken">Apstiprināts</option>

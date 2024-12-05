@@ -69,13 +69,13 @@ $(document).ready(() => {
       formTemplate = `
       <h2 class="text-center text-xl font-semibold mb-2">${book.title}</h2>
         <div class="grid gap-4 grid-cols-2">
-            <label for="name" class="text-xl">Vārds:</label>
+            <label for="name" class="text-xl">Vārds<span class='text-red-500'>*</span>:</label>
             <input type="text" name="name" id="name" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-            <label for="lastName" class="text-xl">Uzvārds:</label>
+            <label for="lastName" class="text-xl">Uzvārds<span class='text-red-500'>*</span>:</label>
             <input type="text" name="lastName" id="lastName" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-            <label for="email" class="text-xl">Epasts:</label>
+            <label for="email" class="text-xl">Epasts<span class='text-red-500'>*</span>:</label>
             <input type="email" name="email" id="email" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-            <label for="phone" class="text-xl">Telefona nr.:</label>
+            <label for="phone" class="text-xl">Telefona nr.<span class='text-red-500'>*</span>:</label>
             <input type="text" name="phone" id="phone" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
         </div>
         <input type="hidden" name="id" id="id" value="${book.id}">

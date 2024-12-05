@@ -69,20 +69,20 @@ $(document).ready(() => {
   const getTemplate = (edit) => {
     return `
     <div class="grid gap-4 grid-cols-2">
-              <label for="title" class="text-xl">Nosaukums:</label>
+              <label for="title" class="text-xl">Nosaukums<span class='text-red-500'>*</span>:</label>
               <input type="text" name="title" id="title" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-              <label for="author" class="text-xl">Autors:</label>
+              <label for="author" class="text-xl">Autors<span class='text-red-500'>*</span>:</label>
               <input type="text" name="author" id="author" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-              <label for="genre" class="text-xl">Žanrs:</label>
+              <label for="genre" class="text-xl">Žanrs<span class='text-red-500'>*</span>:</label>
               <input type="text" name="genre" id="genre" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-              <label for="release" class="text-xl">Izlaiduma datums:</label>
+              <label for="release" class="text-xl">Izlaiduma datums<span class='text-red-500'>*</span>:</label>
               <input type="date" required name="release" id="release" class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-              <label for="description" class="text-xl">Apraksts:</label>
+              <label for="description" class="text-xl">Apraksts<span class='text-red-500'>*</span>:</label>
               <textarea required name="description" id="description" class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body"></textarea>
               ${
                 !edit
                   ? ''
-                  : '<label for="inStorage" class="text-xl">Noliktavā:</label>'
+                  : '<label for="inStorage" class="text-xl">Noliktavā<span class="text-red-500">*</span>:</label>'
               }
               ${
                 !edit
@@ -91,8 +91,10 @@ $(document).ready(() => {
               }
           </div>
           <div class="flex flex-col gap-2">
-              <label for="cover" class="text-xl text-left">Vāka bilde:</label>
-              <input type="file" required name="cover" id="cover" accept="image/*" class="border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
+              <label for="cover" class="text-xl text-left">Vāka bilde<span class='text-red-500'>*</span>:</label>
+              <input type="file" ${
+                edit ? '' : 'required'
+              } name="cover" id="cover" accept="image/*" class="border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
           </div>
           <input type="hidden" name="id" id="id">
           <button type="submit" class="w-full mt-4 border border-gray-500 p-2 rounded-md hover:bg-nav bg-orange-200  dark:bg-zinc-700 dark:hover:bg-darkNav">Pievienot</button>

@@ -72,18 +72,18 @@ $(document).ready(() => {
     <div class="grid gap-4 grid-cols-2">
               <label for="username" class="text-xl">Lietotājvārds:</label>
               <input type="text" name="username" id="username" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-              <label for="name" class="text-xl">Vārds:</label>
+              <label for="name" class="text-xl">Vārds<span class='text-red-500'>*</span>:</label>
               <input type="text" name="name" id="name" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-              <label for="lastName" class="text-xl">Uzvārds:</label>
+              <label for="lastName" class="text-xl">Uzvārds<span class='text-red-500'>*</span>:</label>
               <input type="text" name="lastName" id="lastName" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-              <label for="email" class="text-xl">E-pasts:</label>
+              <label for="email" class="text-xl">E-pasts<span class='text-red-500'>*</span>:</label>
               <input type="email" name="email" id="email" required class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
-              <label for="role" class="text-xl">Tiesības:</label>
+              <label for="role" class="text-xl">Tiesības<span class='text-red-500'>*</span>:</label>
               <select  name="role" id="role" class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
                  <option  value="admin">Administrators</option>
                  <option value="moderator">Moderators</option>
               </select>
-              <label for="password" class="text-xl">Parole:</label>
+              <label for="password" class="text-xl">Parole<span class='text-red-500'>*</span>:</label>
               <input type="password" placeholder="*****" name="password" id="password" ${
                 edit ? '' : 'required'
               } class="shadow-md border border-gray-500 rounded-md p-1 dark:bg-zinc-900 bg-body">
