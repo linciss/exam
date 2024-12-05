@@ -22,7 +22,7 @@ if(isset($_POST['id'])){
         die('Invalid query: ' . mysqli_error());
     }
     if($result['in_storage'] !== $inStorage){
-        $query = $con->prepare("SELECT * FROM ex_readers WHERE book_id = ?");
+        $query = $con->prepare("SELECT * FROM ex_readers WHERE book_id = ? AND status = 'taken'");
         $query->bind_param("i", $id);
         $query->execute();
         $result = $query->get_result();
@@ -41,9 +41,6 @@ if(isset($_POST['id'])){
        
     }
 
-
-
-    
 
     $query = $con->prepare("UPDATE ex_books SET title = ?, author = ?, genre = ?, release_date = ?, cover_image = ?, description = ?, in_storage = ? WHERE book_id = ?");
 
