@@ -15,6 +15,8 @@ $(document).ready(() => {
     headings
       .map((heading) => {
         if (heading === 'E-pasts') {
+          return `<th class="sm:px-6 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider lg:table-cell hidden">${heading}</th>`;
+        } else if (heading === 'Uzvārds') {
           return `<th class="sm:px-6 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider md:table-cell hidden">${heading}</th>`;
         } else {
           return `<th class="sm:px-6 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">${heading}</th>`;
@@ -36,8 +38,8 @@ $(document).ready(() => {
             <td class="sm:px-6 px-2 py-4 ">${user.id}</td>
             <td class="sm:px-6 px-2 py-4 ">${user.username}</td>
             <td class="sm:px-6 px-2 py-4 ">${user.name}</td>
-            <td class="sm:px-6 px-2 py-4 ">${user.lastName}</td>
-            <td class="sm:px-6 px-2 py-4 md:table-cell hidden">${user.email}</td>
+            <td class="sm:px-6 px-2 py-4 md:table-cell hidden">${user.lastName}</td>
+            <td class="sm:px-6 px-2 py-4 lg:table-cell hidden">${user.email}</td>
             <td class="sm:px-6 px-2 py-4 ">${user.role}</td>
             <td class="sm:px-6 px-2 py-4 ">
                 <a id="userEdit" class="hover:bg-nav dark:hover:bg-darkNav px-2 cursor-pointer py-1 border border-gray-500 bg-orange-200 dark:bg-zinc-700 rounded-md"><i class="fa-solid fa-pencil"></i></a>
