@@ -24,6 +24,16 @@ if(isset($_POST['id'])){
         }
     }else if($status === 'returned'){
         $dateReturned = date('Y-m-d H:i:s');
+        $checkIfTaken = $con->prepare("SELECT status FROM ex_readers WHERE reader_id = ?");
+        $checkIfTaken->bind_param("i", $id);
+        $checkIfTaken->execute();
+        $reuslt = $checkIfTaken->get_result();
+        $row = $reuslt->fetch_assoc();
+        if($row['status'] !== 'taken'){
+            echo $_SESSION['error'] = 'Grāmata nav izsniegta!';
+            http_response_code(400);
+            exit;
+        }
         $query = $con->prepare("UPDATE ex_readers SET status = ?, date_returned = ?, last_book_taken = book_id, book_id = null WHERE reader_id = ?");
         $query->bind_param("ssi", $status, $dateReturned, $id);
     }else if($status === 'denied'){
@@ -37,7 +47,6 @@ if(isset($_POST['id'])){
            http_response_code(400);
            exit;
         }
-        echo $_SESSION['error'] = 'sssssssssssssss';
         $query = $con->prepare("UPDATE ex_readers SET status = ? WHERE reader_id = ?");
         $query->bind_param("si", $status, $id);
     }else{
