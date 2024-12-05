@@ -7,9 +7,21 @@ if(isset($_POST['id'])){
     $status = htmlspecialchars($_POST['status']);
 
     if($status === 'taken'){
-        $dateTaken = date('Y-m-d H:i:s');
-        $query = $con->prepare("UPDATE ex_readers SET status = ?, date_taken = ? WHERE reader_id = ?");
-        $query->bind_param("ssi", $status, $dateTaken, $id);
+        $checkStorage = $con->prepare("SELECT in_storage FROM ex_books WHERE book_id = (SELECT book_id FROM ex_readers WHERE reader_id = ?)");
+        $checkStorage->bind_param("i", $id);
+        $checkStorage->execute();
+        $result = $checkStorage->get_result();
+        $row = $result->fetch_assoc();
+
+        if($row['in_storage'] === 'yes'){
+            $dateTaken = date('Y-m-d H:i:s');
+            $query = $con->prepare("UPDATE ex_readers SET status = ?, date_taken = ? WHERE reader_id = ?");
+            $query->bind_param("ssi", $status, $dateTaken, $id);
+        } else {
+            echo $_SESSION['error'] = 'Grāmata nav pieejama!';
+            http_response_code(400);
+            exit;
+        }
     }else if($status === 'returned'){
         $dateReturned = date('Y-m-d H:i:s');
         $query = $con->prepare("UPDATE ex_readers SET status = ?, date_returned = ?, last_book_taken = book_id, book_id = null WHERE reader_id = ?");
