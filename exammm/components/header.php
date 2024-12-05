@@ -52,14 +52,24 @@
             <a href="./" class="flex flex-row gap-2 items-center text-2xl font-bold " id="logo-text">
                 <i class="fa fa-server"></i> Bibliotēka 
             </a>
-            <div class=" flex-row gap-2 items-center sm:flex hidden">
+            <div class="flex-row gap-2 items-center sm:flex hidden">
+                <a href="./" class="cursor-pointer px-2 py-1 border border-gray-500 rounded-md hover:bg-orange-200 dark:hover:bg-zinc-700">Sākums</a>
+                <a href="#about" class="cursor-pointer px-2 py-1 border border-gray-500 rounded-md hover:bg-orange-200 dark:hover:bg-zinc-700">Par mums</a>
+                <a href="#books" class="cursor-pointer px-2 py-1 border border-gray-500 rounded-md hover:bg-orange-200 dark:hover:bg-zinc-700">Grāmatas</a>
+                <a href="#testimonials" class="cursor-pointer px-2 py-1 border border-gray-500 rounded-md hover:bg-orange-200 dark:hover:bg-zinc-700">Testimoniāli</a>
+
                 <a class="cursor-pointer px-2 py-1 border border-gray-500 rounded-md hover:bg-orange-200 dark:hover:bg-zinc-700" id="darkModeToggle"><i class="fa-solid fa-moon" id="themeIcon"></i></a>
             </div>
             <div class="sm:hidden flex flex-row gap-4 items-center"> 
-            
+                <div class=" hamburger cursor-pointer ">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
                 <a class="cursor-pointer px-2 py-1 border border-gray-500 rounded-md " id="darkModeToggleMobile"><i class="fa-solid fa-moon" id="themeIconMobile"></i></a>
             </div>
         </header>
-        <div class="flex-col py-20 gap-4 items-center fixed bg-nav h-screen w-full hidden dark:bg-darkBody bg-body text-black dark:text-white" id="menu">
+        <div class="flex-col py-20 gap-4 items-center fixed bg-nav h-screen w-full hidden dark:bg-darkBody bg-body text-black dark:text-white z-50" id="menu">
             <a href="./" class="bg-orange-200 dark:bg-zinc-700 px-2 py-1 rounded-md border border-gray-500">Sākums</a>
+            <a href="#about" class="bg-orange-200 dark:bg-zinc-700 px-2 py-1 rounded-md border border-gray-500">Par mums</a>
+            <a href="#books" class="bg-orange-200 dark:bg-zinc-700 px-2 py-1 rounded-md border border-gray-500">Grāmatas</a>
+            <a href="#testimonials" class="bg-orange-200 dark:bg-zinc-700 px-2 py-1 rounded-md border border-gray-500">Testimoniāli</a>
         </div>

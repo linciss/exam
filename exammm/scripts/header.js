@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.querySelector('.hamburger');
   const menu = document.getElementById('menu');
   const darkModeToggle = document.getElementById('darkModeToggle');
   const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
@@ -13,6 +14,14 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleDarkMode();
     updateThemeIcons(document.documentElement.classList.contains('dark'));
   });
+
+  hamburger.addEventListener('click', function () {
+    menu.classList.toggle('show-menu');
+  });
+
+  window.onscroll = function () {
+    menu.classList.remove('show-menu');
+  };
 
   darkModeToggleMobile.addEventListener('click', function () {
     toggleDarkMode();
