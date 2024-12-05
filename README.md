@@ -13,3 +13,5 @@ $db = "{your db in phpmyadmin}";
     $con = mysqli_connect($server, $username, $password, $db)
 ?>
 ```
+
+![relations](https://github.com/user-attachments/assets/41e86fb9-1de5-46c2-b55c-848698aa326e)
