@@ -11,7 +11,13 @@ $(document).ready(() => {
   $('#readersHead').append(
     headings
       .map((heading) => {
-        return `<th class="sm:px-6 px-2 py-3 text-center text-xs font-medium uppercase tracking-wider ">${heading}</th>`;
+        if (heading === 'Reg. datums') {
+          return `<th class="sm:px-6 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider md:table-cell hidden">${heading}</th>`;
+        } else if (heading === 'Uzvārds') {
+          return `<th class="sm:px-6 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider md:table-cell hidden">${heading}</th>`;
+        } else {
+          return `<th class="sm:px-6 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">${heading}</th>`;
+        }
       })
       .join(''),
   );
@@ -48,8 +54,12 @@ $(document).ready(() => {
           } border-b border-gray-500 ">
               <td class="sm:px-6 px-2 py-4 ">${reader.id}</td>
               <td class="sm:px-6 px-2 py-4 ">${reader.name}</td>
-              <td class="sm:px-6 px-2 py-4 ">${reader.lastName}</td>
-              <td class="sm:px-6 px-2 py-4 ">${reader.date}</td>
+              <td class="sm:px-6 px-2 py-4 md:table-cell hidden">${
+                reader.lastName
+              }</td>
+              <td class="sm:px-6 px-2 py-4 md:table-cell hidden">${
+                reader.date
+              }</td>
               <td class="sm:px-6 px-2 py-4 ">${reader.book}</td>
               <td class="sm:px-6 px-2 py-4 ">${reader.status}</td>
           </tr>`;
