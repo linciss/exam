@@ -48,7 +48,7 @@ $(document).ready(() => {
           $('#inStorage').text(booksInStorage.length);
         });
 
-        readers.forEach((reader) => {
+        readers.slice(0, 7).forEach((reader) => {
           template += `<tr readerId="${reader.id}" class="${
             reader.deadlineExceeded ? 'bg-red-300' : 'bg-nav dark:bg-darkNav'
           } border-b border-gray-500 ">
