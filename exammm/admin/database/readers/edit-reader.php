@@ -34,7 +34,7 @@ if(isset($_POST['id'])){
             http_response_code(400);
             exit;
         }
-        $query = $con->prepare("UPDATE ex_readers SET status = ?, date_returned = ?, last_book_taken = book_id, book_id = null WHERE reader_id = ?");
+        $query = $con->prepare("UPDATE ex_readers SET status = ?, date_returned = ?, last_book_taken = book_id, book_id = NULL WHERE reader_id = ?");
         $query->bind_param("ssi", $status, $dateReturned, $id);
     }else if($status === 'denied'){
         $checkIfTaken = $con->prepare("SELECT status FROM ex_readers WHERE reader_id = ?");
