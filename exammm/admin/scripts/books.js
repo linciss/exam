@@ -163,6 +163,9 @@ $(document).ready(() => {
       const id = element.attr('bookId');
 
       $.post('database/books/delete-book.php', { id }, (res) => {
+        if (res === 'Šo grāmatu nevar dzēst!') {
+          alert('Šo grāmatu nevar dzēst! Tā ir izsniegta!');
+        }
         fetchBooks();
       });
     }
