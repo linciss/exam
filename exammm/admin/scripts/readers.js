@@ -20,6 +20,8 @@ $(document).ready(() => {
           return `<th class="sm:px-6 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider md:table-cell hidden">${heading}</th>`;
         } else if (heading === 'Reģistrācijas datums') {
           return `<th class="sm:px-6 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider md:table-cell hidden">${heading}</th>`;
+        } else if (heading === 'Uzvārds') {
+          return `<th class="sm:px-6 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider md:table-cell hidden">${heading}</th>`;
         } else {
           return `<th class="sm:px-6 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">${heading}</th>`;
         }
@@ -41,7 +43,9 @@ $(document).ready(() => {
           } border-b border-gray-500 ">
               <td class="sm:px-6 px-2 py-4 ">${reader.id}</td>
               <td class="sm:px-6 px-2 py-4 ">${reader.name}</td>
-              <td class="sm:px-6 px-2 py-4 ">${reader.lastName}</td>
+              <td class="sm:px-6 px-2 py-4 md:table-cell hidden">${
+                reader.lastName
+              }</td>
               <td class="sm:px-6 px-2 py-4 md:table-cell hidden">${
                 reader.email
               }</td>
